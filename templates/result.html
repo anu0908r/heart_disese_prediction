@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="glass-card large result-container">
+    <h2>Diagnostic Results</h2>
+    <p>AI Model Confidence Score: <strong>{{ probability }}%</strong></p>
+    
+    <div class="alert alert-{{ alert_class }}">
+        {{ result_text }}
+    </div>
+    
+    <div class="info-section">
+        <h3>Patient Data Analyzed</h3>
+        <div class="details-grid">
+            {% for key, val in user_details.items() %}
+            <div class="detail-item">
+                <div class="detail-label">{{ key }}</div>
+                <div class="detail-val">{{ val }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="info-section" style="border-top: none;">
+        <h3>Symptomatology</h3>
+        <p style="color: #fff;">{{ symptoms }}</p>
+        
+        <h3 style="margin-top: 1.5rem;">Medical Curations & Advice</h3>
+        <p style="color: #fff;">{{ curations }}</p>
+    </div>
+    
+    <div style="margin-top: 2rem;">
+        <a href="{{ url_for('predict_input') }}" class="btn btn-secondary" style="max-width: 300px;">Run Another Diagnostic</a>
+    </div>
+</div>
+{% endblock %}

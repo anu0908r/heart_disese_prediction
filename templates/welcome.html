@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body_class %}welcome-bg{% endblock %}
+
+{% block content %}
+<div class="glass-card large">
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h1>Welcome to CardioCare</h1>
+        <p>Before we proceed to diagnostics, here are some facts about the human heart:</p>
+    </div>
+    
+    <ul class="facts-list">
+        {% for fact in facts %}
+        <li>{{ fact }}</li>
+        {% endfor %}
+    </ul>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="{{ url_for('predict_input') }}" class="btn" style="max-width: 300px;">Proceed to Diagnostics</a>
+    </div>
+</div>
+{% endblock %}

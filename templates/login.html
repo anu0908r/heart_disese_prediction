@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="glass-card">
+    <div class="login-header">
+        <h1>CardioCare</h1>
+        <p>AI-Powered Clinical Diagnostics</p>
+    </div>
+    
+    <form action="{{ url_for('login_submit') }}" method="POST">
+        <div class="form-group">
+            <label for="username">Doctor ID</label>
+            <input type="text" id="username" name="username" class="form-control" required placeholder="Enter your ID">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn">Login Securely</button>
+    </form>
+</div>
+{% endblock %}
